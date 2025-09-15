@@ -13,7 +13,6 @@ export default function PagesLayout({
     <>
       <Navbar />
       <main className="pages-layout">{children}</main>
-      <Footer />
     </>
   );
 }
