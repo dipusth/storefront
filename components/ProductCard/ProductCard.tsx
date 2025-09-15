@@ -17,6 +17,7 @@ interface Props {
 }
 
 export const ProductCard = ({ product, cardHeight }: Props) => {
+  console.log("Product in ProductCard:", product);
   const { cart, setCart } = useCart();
 
   const addToCart = () => {
@@ -36,9 +37,9 @@ export const ProductCard = ({ product, cardHeight }: Props) => {
           >
             <Image
               className="opacity-90 object-contain group-hover:opacity-100 transition-opacity p-4"
-              src={product.image}
-              alt={product.title || "Product image"}
-              title={product.title}
+              src={product?.image}
+              alt={product?.title || "Product image"}
+              title={product?.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
