@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
 import { ProductType } from "@/types/PostType";
+import { useCart } from "@/context/CartContext";
+import { ShoppingCart } from "lucide-react";
 
 interface Props {
   product?: ProductType;
@@ -9,6 +12,15 @@ interface Props {
 }
 
 const ProductDetail = ({ product, cardHeight }: Props) => {
+  const { cart, setCart } = useCart();
+  const addToCart = () => {
+    const newCart = [...cart];
+    if (!newCart.find((item) => item.id === product.id)) {
+      newCart.push(product);
+    }
+    setCart(newCart);
+  };
+
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -63,6 +75,14 @@ const ProductDetail = ({ product, cardHeight }: Props) => {
             +
           </Button>
         </div>
+        {/* Add to Cart Button */}
+        <Button
+          onClick={addToCart}
+          className="mt-5 w-full md:w-auto px-8 py-3 text-lg bg-primary hover:bg-secondary-500"
+        >
+          <ShoppingCart className="mr-2 h-5 w-5" />
+          Add to Cart
+        </Button>
       </div>
     </div>
   );
