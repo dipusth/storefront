@@ -1,12 +1,13 @@
 "use client";
 
-import Stripe from "stripe";
 import { Input } from "./ui/input";
 import { Search } from "lucide-react";
 import { useState } from "react";
 import { ProductCard } from "./ProductCard/ProductCard";
+import { ProductType } from "@/types/PostType";
 interface Props {
-  products: Stripe.Product[];
+  products: ProductType[];
+  cardHeight?: string;
 }
 
 export const ProductList = ({ products }: Props) => {
@@ -14,7 +15,7 @@ export const ProductList = ({ products }: Props) => {
 
   const filteredProduct = products.filter((product) => {
     const term = searchTerm.toLocaleLowerCase();
-    const nameMatch = product.name.toLocaleLowerCase().includes(term);
+    const nameMatch = product.title?.toLocaleLowerCase().includes(term);
     const descroptionMatch = product?.description
       ? product.description.toLocaleLowerCase().includes(term)
       : false;
