@@ -14,6 +14,7 @@ interface Props {
 const ProductDetail = ({ product, cardHeight }: Props) => {
   const { cart, setCart } = useCart();
   const addToCart = () => {
+    if (!product) return;
     const newCart = [...cart];
     if (!newCart.find((item) => item.id === product.id)) {
       newCart.push(product);
