@@ -1,11 +1,8 @@
-import Image from "next/image";
 import { Outfit } from "next/font/google";
-import "./page.css";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { ProductCard } from "@/components/ProductCard/ProductCard";
-import { Carousel } from "@/components/Carousel";
 import { fetchApi } from "@/hooks/useFetchApi";
 import { ProductType } from "@/types/PostType";
 
@@ -32,11 +29,9 @@ export default async function Home() {
       error = "Unknown server error";
     }
   }
-  console.log("products", products);
 
   return (
     <div className={`${OutfitFont.className}`}>
-      {/* View Products */}
       <section className="mt-10">
         <div className="container">
           <div className="flex justify-between">
@@ -55,9 +50,6 @@ export default async function Home() {
                   key={i}
                 >
                   <ProductCard product={item} cardHeight="h-50" />
-
-                  {/* <span>{item?.default_price}</span> */}
-                  {/* <p>{item.name}</p> */}
                 </div>
               );
             })}
