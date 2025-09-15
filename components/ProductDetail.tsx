@@ -29,8 +29,8 @@ const ProductDetail = ({ product, cardHeight }: Props) => {
     <div className="flex py-5 gap-6">
       {/* Image Container */}
       <div
-        className={`relative rounded-sm overflow-hidden bg-gray-100 ${
-          cardHeight || "h-40"
+        className={`relative rounded-sm overflow-hidden bg-gray-100 flex-1 ${
+          cardHeight || "h-auto"
         } w-40 flex-shrink-0`}
       >
         <Image
@@ -44,7 +44,7 @@ const ProductDetail = ({ product, cardHeight }: Props) => {
       </div>
 
       {/* Product Info */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-2 min-w-0">
         <h4 className="font-bold text-xl mb-2 line-clamp-2">{product.title}</h4>
 
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">
