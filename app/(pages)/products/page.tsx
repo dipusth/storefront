@@ -21,7 +21,6 @@ export default async function ProductsPage() {
       error = "Unknown server error";
     }
   }
-  console.log("products", products);
 
   return (
     <div className="container text-center pt-10">

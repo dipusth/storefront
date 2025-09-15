@@ -17,7 +17,6 @@ interface Props {
 }
 
 export const ProductCard = ({ product, cardHeight }: Props) => {
-  console.log("Product in ProductCard:", product);
   const { cart, setCart } = useCart();
 
   const addToCart = () => {

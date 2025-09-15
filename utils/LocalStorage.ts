@@ -35,7 +35,6 @@ const getUser = (username: string, password: string) => {
   if(userStr == null) return null;
   const users = JSON.parse(userStr) as IuserType[];
   const foundUser = users.find(x => x.username == username && x.password == password)
-  console.log('foundUser', foundUser)
   return foundUser
 
 };
